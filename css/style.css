@@ -842,3 +842,8 @@ a.button:hover {
 .maps iframe {
     pointer-events: none;
 }
+
+.error{
+    margin-top: 50px;
+    height: 50vh;
+}

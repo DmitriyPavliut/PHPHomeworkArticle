@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteBase /
+
+Options -Indexes
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.+)(/.+\.php)$ $1 [R=301,L]
+
+#RewriteCond %{REQUEST_URI} /product/([0-9]+)$
+#RewriteRule ./(product)?/?([0-9]+)?(/.+)? /product/.?id=$2
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.php !-f
+RewriteRule .+ 404.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/product/([0-9]+)$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .+ 404.php

@@ -4,7 +4,7 @@
 class DB
 {
     private static $host = 'localhost';
-    private static $database = 'store';
+    private static $database = 'articles';
     private static $user = 'test';
     private static $password = 'test';
 

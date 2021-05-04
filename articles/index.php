@@ -1,15 +1,12 @@
 <?php
-    $title = 'Главная';
+    $title = 'Статьи';
     require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
 
+/*$arProducts=Articles::getArticlesList(['id','title','price','image']);
+echo '<pre>';
+print_r($arProducts);
+echo '</pre>';*/
 ?>
-    <header class="">
-        <div id="owl-slide" class="owl-carousel">
-            <div class="item">
-                <img src="../images/slide1.jpg"/>
-            </div>
-        </div>
-    </header>
 
     <div id="container">
         <div class="wrap-container">
@@ -41,8 +38,8 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="single.html" class="portfolio-box">
-                                                <img src="images/11.jpg" alt="">
+                                            <a href="detail.php" class="portfolio-box">
+                                                <img src="../images/11.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
@@ -57,8 +54,8 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="single.html" class="portfolio-box">
-                                                <img src="images/6.jpg" alt="">
+                                            <a href="detail.php" class="portfolio-box">
+                                                <img src="../images/6.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
@@ -73,8 +70,8 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="single.html" class="portfolio-box">
-                                                <img src="images/14.jpg" alt="">
+                                            <a href="detail.php" class="portfolio-box">
+                                                <img src="../images/14.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
@@ -91,8 +88,8 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="single.html" class="portfolio-box">
-                                                <img src="images/5.jpg" alt="">
+                                            <a href="detail.php" class="portfolio-box">
+                                                <img src="../images/5.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
@@ -107,8 +104,8 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="single.html" class="portfolio-box">
-                                                <img src="images/2.jpg" alt="">
+                                            <a href="detail.php" class="portfolio-box">
+                                                <img src="../images/2.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
@@ -123,8 +120,8 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="single.html" class="portfolio-box">
-                                                <img src="images/9.jpg" alt="">
+                                            <a href="detail.php" class="portfolio-box">
+                                                <img src="../images/9.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
