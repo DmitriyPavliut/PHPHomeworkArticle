@@ -3,7 +3,6 @@
     require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
 
 ?>
-
     <div id="container">
         <div class="wrap-container">
 
@@ -36,13 +35,13 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="/articles?idPost=<?= $article['ID'] ?>" class="portfolio-box">
+                                            <a href="/articles/<?= $article['ID'] ?>" class="portfolio-box">
                                                 <img src="../images/stati.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
                                             <h3 class="entry-title"><?= $article['TITLE'] ?></h3>
-                                            <div class="l-tags"><a href="/articles?idCategory=<?= $article['CATEGORY_ID'] ?>"><?= $article['CATEGORY_NAME'] ?></a>
+                                            <div class="l-tags"><a href="/articles/<?= $article['CATEGORY_CODE'] ?>"><?= $article['CATEGORY_NAME'] ?></a>
                                             </div>
                                         </div>
                                     </article>
