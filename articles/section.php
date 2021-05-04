@@ -1,6 +1,6 @@
 <?php
     require_once $_SERVER["DOCUMENT_ROOT"] . '/controller/init.php';
-    $title = ucfirst($arCategory['NAME']);
+    $title = isset($arCategory) ? ucfirst($arCategory['NAME']) : '';
     require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
     ?>
     <div id="container">
@@ -50,7 +50,7 @@
                     <div class="pages">
                         <?php if(isset($pages)):
                             for($i=1;$i<=$pages; $i++): ?>
-                                <a href="/articles/<?= $article['CATEGORY_CODE'] ?>/<?= $i ?>"><?= $i ?></a>
+                                <a href="/articles/<?= $article['CATEGORY_CODE'] ?>?page=<?= $i ?>"><?= $i ?></a>
                             <?php endfor;
                         endif; ?>
                     </div>
