@@ -4,6 +4,7 @@ RewriteBase /
 Options -Indexes
 
 RewriteRule ^articles/([A-Za-z_]+)$ articles/section.php?category=$1
+#RewriteRule ^articles/([^/]+)/([^/]+)?$ articles/section.php?category=$1&page=$2 [L,QSA]
 RewriteRule ^articles/([0-9]+)$ articles/detail.php?idPost=$1
 
 RewriteCond %{REQUEST_FILENAME} -f

@@ -1,6 +1,9 @@
 <?php
     $title = 'Детальнее';
     require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
+    if(isset($arPost) && $arPost==false){
+        require_once $_SERVER["DOCUMENT_ROOT"] . '/404.php';
+    }
 ?>
     <section id="container">
         <div class="wrap-container">

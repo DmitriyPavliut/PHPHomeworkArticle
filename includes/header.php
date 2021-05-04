@@ -40,7 +40,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/controller/init.php';
                         endif; ?>
                     </ul>
                 </li>
-                <li class="last"><a href="/contact.html"><span>Contact</span></a></li>
+                <li class="last"><a href="/contact"><span>Contact</span></a></li>
             </ul>
         </div>
 

@@ -59,7 +59,5 @@ if (!empty($_REQUEST['idPost'])) {
         $arPost['CATEGORY_NAME'] = $category['NAME'];
         $arPost['CATEGORY_CODE'] = $category['CODE'];
         $arPost['AUTHOR_NAME'] = $author['NAME'];
-    } else {
-        header('Location: /404.php');
     }
 }
