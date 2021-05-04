@@ -18,7 +18,7 @@
                                     <span class="cat-links"><a href="/articles/<?= $arPost['CATEGORY_CODE'] ?>"><?= $arPost['CATEGORY_NAME']; ?></a></span>
                                 </div>
                                 <div class="post-thumbnail-wrap">
-                                    <img src="../images/slide2.jpg">
+                                    <img src="/images/slide2.jpg">
                                 </div>
                                 <div class="entry-content">
                                     <div class="excerpt"><p><?= $arPost['CONTENT'] ?></p></div>

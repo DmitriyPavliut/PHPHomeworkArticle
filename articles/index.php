@@ -35,7 +35,7 @@
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="/articles/<?= $article['ID'] ?>" class="portfolio-box">
+                                            <a href="/articles/<?= $article['CATEGORY_CODE'] ?>/<?= $article['ID'] ?>" class="portfolio-box">
                                                 <img src="../images/stati.jpg" alt="">
                                             </a>
                                         </div>

@@ -12,13 +12,13 @@ require_once $_SERVER["DOCUMENT_ROOT"] . '/controller/init.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-    <link rel="stylesheet" href="../css/zerogrid.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="/css/zerogrid.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/menu.css">
 
-    <link rel="stylesheet" href="../css/menu.css">
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script defer src="../js/script.js"></script>
+    <script defer src="/js/script.js"></script>
 </head>
 
 <body class="home-page">
