@@ -45,6 +45,13 @@
                             endif; ?>
                         </div>
                     </div>
+                    <div class="pages">
+                        <?php if(isset($pages)):
+                            for($i=1;$i<=$pages; $i++): ?>
+                                <a href="/articles/<?= $article['CATEGORY_CODE'] ?>/<?= $i ?>"><?= $i ?></a>
+                            <?php endfor;
+                        endif; ?>
+                    </div>
                 </div>
             </section>
         </div>

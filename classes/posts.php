@@ -47,6 +47,7 @@
                 $sql .= isset($arLimit['offset']) ? " OFFSET {$arLimit['offset']} " : "";
             }
 
+
             return self::query($sql);
 
         }
@@ -104,9 +105,15 @@
             return self::getFieldsTable('posts');
         }
 
-        public static function countPosts()
+        public static function countPosts($arFilter=[])
         {
-            return self::query("SELECT count(*) as COUNT FROM posts;")[0];
+            $sql ="SELECT count(*) as COUNT FROM posts";
+            if (!empty($arFilter)) {
+                $filter = self::editParameters($arFilter, '=', " AND ", '\'');
+
+                $sql.= " WHERE {$filter}";
+            }
+            return self::query($sql)[0];
         }
 
 

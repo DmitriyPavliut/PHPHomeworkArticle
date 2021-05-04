@@ -847,3 +847,13 @@ a.button:hover {
     margin-top: 50px;
     height: 50vh;
 }
+
+.pages{
+    margin: 30px auto;
+}
+
+.pages a{
+    font-size: 20px;
+    margin: 0 10px;
+    font-weight: bold;
+}

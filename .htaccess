@@ -14,11 +14,11 @@ RewriteRule ^(.+)(/.+\.php)$ $1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME}/index.php !-f
 RewriteCond %{REQUEST_URI} !/articles/([A-Za-z_]+)$
-RewriteCond %{REQUEST_URI} !/articles/articles/([0-9]+)$
+RewriteCond %{REQUEST_URI} !/articles/([0-9]+)$
 RewriteRule .+ 404.php
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !/articles/([A-Za-z_]+)$
-RewriteCond %{REQUEST_URI} !/articles/articles/([0-9]+)$
+RewriteCond %{REQUEST_URI} !/articles/([0-9]+)$
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .+ 404.php

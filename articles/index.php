@@ -43,15 +43,26 @@
                                             <h3 class="entry-title"><?= $article['TITLE'] ?></h3>
                                             <div class="l-tags"><a href="/articles/<?= $article['CATEGORY_CODE'] ?>"><?= $article['CATEGORY_NAME'] ?></a>
                                             </div>
+                                            <div class="l-tags"><?= date('F j, Y', strtotime($article['DATE'])); ?>
+                                            </div>
                                         </div>
                                     </article>
                                 </div>
                             </div>
                             <?php endforeach;
                             endif; ?>
+
                         </div>
                     </div>
+                    <div class="pages">
+                        <?php if(isset($pages)):
+                            for($i=1;$i<=$pages; $i++): ?>
+                                <a href="/articles?page=<?= $i ?>"><?= $i ?></a>
+                            <?php endfor;
+                        endif; ?>
+                    </div>
                 </div>
+
             </section>
         </div>
     </div>
