@@ -2,10 +2,6 @@
     $title = 'Статьи';
     require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
 
-/*$arProducts=Articles::getArticlesList(['id','title','price','image']);
-echo '<pre>';
-print_r($arProducts);
-echo '</pre>';*/
 ?>
 
     <div id="container">
@@ -34,104 +30,26 @@ echo '</pre>';*/
                 <div class="zerogrid">
                     <div class="wrap-box">
                         <div class="row">
+                            <?php if(!empty($arArticles)):
+                            foreach ($arArticles as $article):?>
                             <div class="col-1-3">
                                 <div class="wrap-col">
                                     <article>
                                         <div class="post-thumbnail-wrap">
-                                            <a href="detail.php" class="portfolio-box">
-                                                <img src="../images/11.jpg" alt="">
+                                            <a href="/articles?idPost=<?= $article['ID'] ?>" class="portfolio-box">
+                                                <img src="../images/stati.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="entry-header ">
-                                            <h3 class="entry-title">Lovely Smiles</h3>
-                                            <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a>
+                                            <h3 class="entry-title"><?= $article['TITLE'] ?></h3>
+                                            <div class="l-tags"><a href="/articles?idCategory=<?= $article['CATEGORY_ID'] ?>"><?= $article['CATEGORY_NAME'] ?></a>
                                             </div>
                                         </div>
                                     </article>
                                 </div>
                             </div>
-                            <div class="col-1-3">
-                                <div class="wrap-col">
-                                    <article>
-                                        <div class="post-thumbnail-wrap">
-                                            <a href="detail.php" class="portfolio-box">
-                                                <img src="../images/6.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="entry-header ">
-                                            <h3 class="entry-title">Lovely Smiles</h3>
-                                            <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                            <div class="col-1-3">
-                                <div class="wrap-col">
-                                    <article>
-                                        <div class="post-thumbnail-wrap">
-                                            <a href="detail.php" class="portfolio-box">
-                                                <img src="../images/14.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="entry-header ">
-                                            <h3 class="entry-title">Lovely Smiles</h3>
-                                            <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1-3">
-                                <div class="wrap-col">
-                                    <article>
-                                        <div class="post-thumbnail-wrap">
-                                            <a href="detail.php" class="portfolio-box">
-                                                <img src="../images/5.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="entry-header ">
-                                            <h3 class="entry-title">Lovely Smiles</h3>
-                                            <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                            <div class="col-1-3">
-                                <div class="wrap-col">
-                                    <article>
-                                        <div class="post-thumbnail-wrap">
-                                            <a href="detail.php" class="portfolio-box">
-                                                <img src="../images/2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="entry-header ">
-                                            <h3 class="entry-title">Lovely Smiles</h3>
-                                            <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                            <div class="col-1-3">
-                                <div class="wrap-col">
-                                    <article>
-                                        <div class="post-thumbnail-wrap">
-                                            <a href="detail.php" class="portfolio-box">
-                                                <img src="../images/9.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="entry-header ">
-                                            <h3 class="entry-title">Lovely Smiles</h3>
-                                            <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
+                            <?php endforeach;
+                            endif; ?>
                         </div>
                     </div>
                 </div>

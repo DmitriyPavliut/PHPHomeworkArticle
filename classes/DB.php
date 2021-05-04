@@ -15,6 +15,7 @@ class DB
         try {
             $dsn = "mysql:dbname=" . self::$database . ";host=" . self::$host;
             $dbh = new PDO($dsn, self::$user, self::$password);
+            $dbh->exec("set names utf8");
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die ('Ошибка подключения:' . $e->getMessage());

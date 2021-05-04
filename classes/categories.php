@@ -22,7 +22,7 @@ class Categories extends DB
      * @param array $arLimit ограничение выборки параметры offset, limit
      * @return mixed возвращает массив товаров
      */
-    public static function getCategoriesList( array $arSelect, array $arFilter, array $arOrder = ['id' => 'ASC'], array $arLimit): array
+    public static function getCategoriesList( array $arSelect, array $arFilter, array $arOrder, array $arLimit): array
     {
 
         $select = !empty($arSelect) ? implode(",", $arSelect) : '*';
@@ -35,7 +35,7 @@ class Categories extends DB
             $sql .= " WHERE {$filter}";
         }
 
-        $order = self::editParameters($arOrder, ' ', ",");
+        $order = !empty($arOrder) ? self::editParameters($arOrder, ' ', ",") : 'ID ASC';
         $sql .= " ORDER BY {$order}";
 
         if (!empty($arLimit) && isset($arLimit['limit'])) {

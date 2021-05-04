@@ -14,7 +14,7 @@
          */
         public static function setPost($active, $title, $content, $categoryId, $authorId): bool
         {
-            return self::query("INSERT INTO `posts` (`ACTIVE`, `TITLE`, `CODE`, `CONTENT`, `CATEGORY_ID`,`AUTHOR_ID`,`DATE`) VALUES ('" . $active . "', '" . $title . "', '" . self::translitString($title) . "', '" . $content . "', '" . $categoryId. "', '" . $authorId. "', '" . date("Y-m-d H:i:s") . "')");
+            return self::query("INSERT INTO `posts` (`ACTIVE`, `TITLE`, `CODE`, `CONTENT`, `CATEGORY_ID`,`AUTHOR_ID`,`DATE`) VALUES ('" . $active . "', '" . $title . "', '" . self::translitString($title) . "', '" . $content . "', '" . $categoryId . "', '" . $authorId . "', '" . date("Y-m-d H:i:s") . "')");
 
         }
 
@@ -26,7 +26,7 @@
          * @param array $arLimit ограничение выборки параметры offset, limit
          * @return mixed возвращает массив публикаций
          */
-        public static function getPostsList(array $arSelect, array $arFilter,array $arOrder = ['id' => 'ASC'], array $arLimit): array
+        public static function getPostsList(array $arSelect, array $arFilter, array $arOrder, array $arLimit): array
         {
 
             $select = !empty($arSelect) ? implode(",", $arSelect) : '*';
@@ -39,7 +39,7 @@
                 $sql .= " WHERE {$filter}";
             }
 
-            $order = self::editParameters($arOrder, ' ', ",");
+            $order = !empty($arOrder) ? self::editParameters($arOrder, ' ', ",") : 'ID ASC';
             $sql .= " ORDER BY {$order}";
 
             if (!empty($arLimit) && isset($arLimit['limit'])) {
@@ -57,7 +57,7 @@
          * @param array $arSelect массив возвращаемых полей(необязательный)
          * @return array массив с полями публикации
          */
-        public static function getPost($id, array $arSelect )
+        public static function getPost($id, array $arSelect)
         {
 
 
@@ -103,6 +103,12 @@
         {
             return self::getFieldsTable('posts');
         }
+
+        public static function countPosts()
+        {
+            return self::query("SELECT count(*) as COUNT FROM posts;")[0];
+        }
+
 
         private static function translitString($string)
         {

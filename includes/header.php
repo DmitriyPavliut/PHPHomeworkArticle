@@ -1,6 +1,7 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . '/classes/posts.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/controller/init.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

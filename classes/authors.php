@@ -22,7 +22,7 @@ class Authors extends DB
      * @param array $arLimit ограничение выборки параметры offset, limit
      * @return mixed возвращает массив авторов
      */
-    public static function getAuthorsList( array $arSelect, array $arFilter,array $arOrder = ['ID' => 'ASC'], array $arLimit): array
+    public static function getAuthorsList( array $arSelect, array $arFilter,array $arOrder, array $arLimit): array
     {
         $select = !empty($arSelect) ? implode(",", $arSelect) : '*';
 
@@ -34,7 +34,7 @@ class Authors extends DB
             $sql .= " WHERE {$filter}";
         }
 
-        $order = self::editParameters($arOrder, ' ', ",");
+        $order = !empty($arOrder) ? self::editParameters($arOrder, ' ', ",") : 'ID ASC';
         $sql .= " ORDER BY {$order}";
 
         if (!empty($arLimit) && isset($arLimit['limit'])) {
