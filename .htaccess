@@ -3,9 +3,9 @@ RewriteBase /
 
 Options -Indexes
 
-RewriteRule ^articles/([A-Za-z_]+)\??(page=[0-9]+)?$ articles/section.php?category=$1&$2 [L,QSA]
+RewriteRule ^articles/([A-Za-z_-]+)\??(page=[0-9]+)?$ articles/section.php?category=$1&$2 [L,QSA]
 
-RewriteRule ^articles/([A-Za-z_]+)/([0-9]+)$ articles/detail.php?category=$1&idPost=$2 [L,QSA]
+RewriteRule ^articles/([A-Za-z_-]+)/([0-9]+)$ articles/detail.php?category=$1&idPost=$2 [L,QSA]
 
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteCond %{REQUEST_FILENAME} !/articles/detail.php$
