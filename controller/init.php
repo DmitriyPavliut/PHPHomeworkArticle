@@ -12,7 +12,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'articles') != false && empty($_REQUEST['cat
 
     $countPosts = Posts::countPosts();
     $pages = ceil($countPosts['COUNT'] / 6);
-    $offset = empty($_REQUEST['page']) || $_REQUEST['page'] == 1 ? 0 : ($_REQUEST['page'] - 1) * 6;
+    $offset = empty($_REQUEST['page']) || $_REQUEST['page'] == 1 || $_REQUEST['page'] > $pages ? 0 : ($_REQUEST['page'] - 1) * 6;
 
     $arPosts = Posts::getPostsList(['ID', 'ACTIVE', 'TITLE', 'CODE', 'CATEGORY_ID', 'DATE'], [], ['DATE' => 'DESC'], ['limit' => 6, 'offset' => $offset]);
 
@@ -36,7 +36,7 @@ if (!empty($_REQUEST['category']) && empty($_REQUEST['idPost'])) {
     $arArticles = [];
     $arPosts = [];
 
-    $offset = empty($_REQUEST['page']) || $_REQUEST['page'] == 1 ? 0 : ($_REQUEST['page'] - 1) * 6;
+    $offset = empty($_REQUEST['page']) || $_REQUEST['page'] == 1 || $_REQUEST['page'] > $pages? 0 : ($_REQUEST['page'] - 1) * 6;
 
     $arPosts = Posts::getPostsList(['ID', 'ACTIVE', 'TITLE', 'CODE', 'CATEGORY_ID', 'DATE'], ['CATEGORY_ID' => $arCategory['ID']], ['DATE' => 'DESC'], ['limit' => 6, 'offset' => $offset]);
 
