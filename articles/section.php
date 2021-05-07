@@ -1,8 +1,20 @@
 <?php
-    require_once $_SERVER["DOCUMENT_ROOT"] . '/controller/init.php';
-    $title = isset($arCategory) ? ucfirst($arCategory['NAME']) : '';
-    require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
-    ?>
+require_once $_SERVER["DOCUMENT_ROOT"] . '/controller/init.php';
+
+$arCategory = Categories::getCategoriesList(['ID', 'NAME'], ['CODE' => $_REQUEST['category']], [], []);
+$arCategory = $arCategory[0];
+$countPosts = Posts::countPosts(['CATEGORY_ID' => $arCategory['ID']]);
+$pages = ceil($countPosts['COUNT'] / 6);
+
+
+$offset = empty($_REQUEST['page']) || $_REQUEST['page'] <= 1 || $_REQUEST['page'] > $pages ? 0 : ($_REQUEST['page'] - 1) * 6;
+
+$arArticles = Posts::getExpPostsList(['ID', 'TITLE', 'CODE', 'CATEGORY_ID', 'DATE'], ['categories.CATEGORY_ID' =>$_REQUEST['category'],'ACTIVE'=>1], ['DATE' => 'DESC'], ['limit' => 6, 'offset' => $offset]);
+
+
+$title = ucfirst($arCategory['NAME']);
+require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/header.php';
+?>
     <div id="container">
         <div class="wrap-container">
 
@@ -10,7 +22,7 @@
                 <div class="zerogrid">
                     <div class="wrap-box">
                         <div class="box-header">
-                            <h2><?=ucfirst($arCategory['NAME'])?></h2>
+                            <h2><?= ucfirst($arCategory['NAME']) ?></h2>
                         </div>
                     </div>
                 </div>
@@ -23,7 +35,7 @@
                 <div class="zerogrid">
                     <div class="wrap-box">
                         <div class="row">
-                            <?php if(!empty($arArticles)):
+                            <?php if (!empty($arArticles)):
                                 foreach ($arArticles as $article):?>
                                     <div class="col-1-3">
                                         <div class="wrap-col">
@@ -35,7 +47,8 @@
                                                 </div>
                                                 <div class="entry-header ">
                                                     <h3 class="entry-title"><?= $article['TITLE'] ?></h3>
-                                                    <div class="l-tags"><a href="/articles/<?= $article['CATEGORY_CODE'] ?>"><?= $article['CATEGORY_NAME'] ?></a>
+                                                    <div class="l-tags">
+                                                        <a href="/articles/<?= $article['CATEGORY_CODE'] ?>"><?= $article['CATEGORY_NAME'] ?></a>
                                                     </div>
                                                     <div class="l-tags"><?= date('F j, Y', strtotime($article['DATE'])); ?>
                                                     </div>
@@ -48,8 +61,8 @@
                         </div>
                     </div>
                     <div class="pages">
-                        <?php if(isset($pages)):
-                            for($i=1;$i<=$pages; $i++): ?>
+                        <?php if (isset($pages)):
+                            for ($i = 1; $i <= $pages; $i++): ?>
                                 <a href="/articles/<?= $article['CATEGORY_CODE'] ?>?page=<?= $i ?>"><?= $i ?></a>
                             <?php endfor;
                         endif; ?>
@@ -60,5 +73,5 @@
     </div>
 
 <?php
-    require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php';
 ?>
