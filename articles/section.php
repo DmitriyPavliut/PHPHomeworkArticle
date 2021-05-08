@@ -9,7 +9,7 @@ $pages = ceil($countPosts['COUNT'] / 6);
 
 $offset = empty($_REQUEST['page']) || $_REQUEST['page'] <= 1 || $_REQUEST['page'] > $pages ? 0 : ($_REQUEST['page'] - 1) * 6;
 
-$arArticles = Posts::getExpPostsList(['ID', 'TITLE', 'CODE', 'CATEGORY_ID', 'DATE'], ['categories.CATEGORY_ID' =>$_REQUEST['category'],'ACTIVE'=>1], ['DATE' => 'DESC'], ['limit' => 6, 'offset' => $offset]);
+$arArticles = Posts::getExpPostsList(['ID', 'TITLE', 'CODE', 'CATEGORY_ID', 'DATE'], ['CATEGORY_ID' =>$arCategory['ID'],'ACTIVE'=>1], ['DATE' => 'DESC'], ['limit' => 6, 'offset' => $offset]);
 
 
 $title = ucfirst($arCategory['NAME']);

@@ -74,6 +74,7 @@ class Posts extends DB
             $sql .= isset($arLimit['offset']) ? " OFFSET {$arLimit['offset']} " : "";
         }
 
+
         return self::query($sql);
 
     }
